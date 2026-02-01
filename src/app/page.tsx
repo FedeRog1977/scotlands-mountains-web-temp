@@ -22,7 +22,7 @@ const Test = async ({ searchParams }: TestPageProps): Promise<ReactElement> => {
   console.log('Search Params:', params);
 
   // TODO: expose options to UI
-  const mapUrl = facade.getMap('Light_3857');
+  const mapUrl = facade.getMap('Leisure_27700');
 
   return <ConquestMapTemplate mapUrl={mapUrl} />;
 };
