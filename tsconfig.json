@@ -1,0 +1,24 @@
+{
+  "extends": "./src/config/typescript-next/tsconfig.json",
+  "compilerOptions": {
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "noEmit": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "strictNullChecks": true,
+    "paths": {
+      "~/libs/components-basics/*": ["./src/libs/components/basics/components/*/index.ts"],
+      "~/libs/components-blocks/*": ["./src/libs/components/blocks/*/index.ts"],
+      "~/libs/components-templates/*": ["./src/libs/components/templates/*/index.ts"],
+      "~/libs/constants": ["./src/libs/constants/index.ts"],
+      "~/libs/types": ["./src/libs/types/index.ts"],
+      "~/libs/utils": ["./src/libs/utils/index.ts"],
+      "~/services/*": ["./src/services/*/index.ts"]
+    }
+  },
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "dist/types/**/*.ts", ".next/types/**/*.ts"],
+  "exclude": ["node_modules"]
+}

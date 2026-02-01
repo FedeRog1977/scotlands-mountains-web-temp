@@ -1,0 +1,32 @@
+{
+  // "extends": "../typescript/tsconfig.json",
+  "compilerOptions": {
+    /**
+     * Specify what JSX code is generated.
+     *
+     * Note: uses "preserve" as Next.js implements its own JSX transform.
+     */
+    "jsx": "preserve",
+
+    /**
+     * Temp workaround for Vercel
+     */
+    "incremental": true,
+    "target": "ESNext",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "resolveJsonModule": true,
+    "allowJs": true,
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "skipLibCheck": true,
+    "preserveWatchOutput": true
+  }
+}

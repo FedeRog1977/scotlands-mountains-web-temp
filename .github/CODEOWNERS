@@ -1,0 +1,12 @@
+# Adhere to this standard:
+# https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+# Root
+* @FedeRog1977
+
+# Dotfiles
+.* @FedeRog1977
+
+# Docs
+/docs/ @FedeRog1977
+
