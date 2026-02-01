@@ -2,6 +2,7 @@
 
 import { FC } from 'react';
 import { MapContainer, TileLayer } from 'react-leaflet';
+import { osAttribution } from '../constants/os-attribution.js';
 import { getMapContainerProps } from './get-map-container-props.js';
 
 type OSMapComponentProps = {
@@ -15,10 +16,7 @@ const OSMapComponent: FC<OSMapComponentProps> = ({ mapUrl }) => {
   return (
     // eslint-disable-next-line react/jsx-props-no-spreading
     <MapContainer {...mapContainerProps}>
-      <TileLayer
-        url={mapUrl}
-        attribution='&copy; <a href="https://docs.os.uk/os-apis/accessing-os-apis/os-maps-api">Ordnance Survey</a> contributors'
-      />
+      <TileLayer url={mapUrl} attribution={osAttribution} />
     </MapContainer>
   );
 };

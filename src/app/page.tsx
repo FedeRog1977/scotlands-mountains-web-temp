@@ -1,31 +1,62 @@
 import { Metadata } from 'next';
+import Link from 'next/link.js';
+import { redirect } from 'next/navigation.js';
 import { ReactElement } from 'react';
-import { facade } from './_facade/index.js';
-import { ConquestMapTemplate } from './_ui/templates/conquest-map-template/conquest-map-template.jsx';
 
 type SearchParams = {
   query: string;
 };
 
-export type TestPageProps = {
+export type HomeProps = {
   searchParams: Promise<SearchParams>;
 };
 
 export const generateMetadata = (): Metadata => ({
-  title: "Scotland's Mountains | Conquest Map",
-  description: "Scotland's Mountains Conquest Map Page",
-  keywords: ['scotlands', 'mountains', 'conquest', 'map', 'ordnance', 'survey'],
+  title: "Scotland's Mountains | Home",
+  description: "Scotland's Mountains Home Page",
+  keywords: ['scotlands', 'mountains', 'home'],
 });
 
-const Test = async ({ searchParams }: TestPageProps): Promise<ReactElement> => {
+const Home = async ({ searchParams }: HomeProps): Promise<ReactElement> => {
   const params = await searchParams;
-  // eslint-disable-next-line no-console
-  console.log('Search Params:', params);
 
-  // TODO: expose options to UI
-  const mapUrl = facade.getMap('Leisure_27700');
+  if (params.query) {
+    redirect(params.query);
+  }
 
-  return <ConquestMapTemplate mapUrl={mapUrl} />;
+  return (
+    <div style={{ fontSize: '36px', textAlign: 'center' }}>
+      <p>Scotland&rsquo;s Mountains v{process.env.APP_VERSION}</p>
+      <p>
+        {/* @ts-expect-error: This is fine */}
+        <Link href="/conquest">Conquest</Link>
+      </p>
+      <p>
+        {/* @ts-expect-error: This is fine */}
+        <Link href="/weather">Mountain Weather</Link>
+      </p>
+      <p>
+        {/* @ts-expect-error: This is fine */}
+        <Link href="/districts">Districts</Link>
+      </p>
+      <p>
+        {/* @ts-expect-error: This is fine */}
+        <Link href="/regions">Regions</Link>
+      </p>
+      <p>
+        {/* @ts-expect-error: This is fine */}
+        <Link href="/landmasses">Landmasses</Link>
+      </p>
+      <p>
+        {/* @ts-expect-error: This is fine */}
+        <Link href="/hills">Hills</Link>
+      </p>
+      <p>
+        {/* @ts-expect-error: This is fine */}
+        <Link href="/gear">Gear</Link>
+      </p>
+    </div>
+  );
 };
 
-export default Test;
+export default Home;

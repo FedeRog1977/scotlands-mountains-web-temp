@@ -39,5 +39,5 @@ export const getMapContainerProps = (isEPSG27700: boolean): MapContainerProps =>
         projectCoordinates('EPSG:27700', 'EPSG:4326', [900000, 1376256]),
       ] as LatLngBoundsExpression)
     : undefined,
-  style: { height: '100vh', width: '100vw' },
+  style: { height: '98vh', width: '99vw' },
 });
