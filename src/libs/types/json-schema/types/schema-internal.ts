@@ -1,13 +1,13 @@
 import { ISODateString } from '../../iso-date-string.js';
-import { Compound } from './compound.js';
-import { PartialModeWrapper } from './partial.js';
-import { Ref } from './ref.js';
 import { ArraySchema } from './array.js';
 import { BooleanSchema } from './boolean.js';
+import { Compound } from './compound.js';
 import { DateSchema } from './date.js';
 import { NullSchema } from './null.js';
 import { NumberSchema } from './number.js';
 import { ObjectSchema } from './object.js';
+import { PartialModeWrapper } from './partial.js';
+import { Ref } from './ref.js';
 import { StringSchema } from './string.js';
 
 export type SchemaInternal<T, PartialMode extends boolean> =

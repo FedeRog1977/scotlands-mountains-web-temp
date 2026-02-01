@@ -1,5 +1,6 @@
 import { OSMapLayer } from '~/libs/types';
-import { Validator } from '~/services/validator-ajv';
+
+// import { Validator } from '~/services/validator-ajv';
 import { Interface } from './interface.js';
 
 type Config = {

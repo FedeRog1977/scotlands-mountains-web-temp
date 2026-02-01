@@ -1,6 +1,6 @@
+import { OSMapLayer } from '~/libs/types';
 import { OrdnanceSurveyService } from '~/services/ordnance-survey';
 import { Interface } from '../interface.js';
-import { OSMapLayer } from '~/libs/types';
 
 type Config = {
   ordnanceSurveyService: OrdnanceSurveyService;

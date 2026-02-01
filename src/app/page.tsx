@@ -19,6 +19,7 @@ export const generateMetadata = (): Metadata => ({
 
 const Test = async ({ searchParams }: TestPageProps): Promise<ReactElement> => {
   const params = await searchParams;
+  // eslint-disable-next-line no-console
   console.log('Search Params:', params);
 
   // TODO: expose options to UI

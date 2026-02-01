@@ -20,11 +20,9 @@
 import globals from 'globals';
 import coreModule from './modules/core/module.js';
 import importModule from './modules/import/module.js';
-import jestModule from './modules/jest/module.js';
 import jsxA11yModule from './modules/jsx-a11y/module.js';
 import reactModule from './modules/react/module.js';
 import storybookModule from './modules/storybook/module.js';
-import testingLibraryModule from './modules/testing-library/module.js';
 import typescriptModule from './modules/typescript/module.js';
 
 export default [
@@ -75,12 +73,10 @@ export default [
     },
     plugins: {
       ...importModule.plugins,
-      ...testingLibraryModule.plugins,
     },
     rules: {
       ...coreModule.rules,
       ...importModule.rules,
-      ...testingLibraryModule.rules,
     },
     settings: {
       ...importModule.settings,
@@ -235,12 +231,8 @@ export default [
         ...globals.jest,
       },
     },
-    plugins: {
-      ...jestModule.plugins,
-    },
-    rules: {
-      ...jestModule.rules,
-    },
+    plugins: {},
+    rules: {},
   },
 
   /**
