@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { redirect } from 'next/navigation.js';
 import { ReactElement } from 'react';
 import { facade } from '../_facade/index.js';
 import { ConquestMapTemplate } from '../_ui/templates/conquest-map-template/conquest-map-template.jsx';
@@ -19,13 +20,14 @@ export const generateMetadata = (): Metadata => ({
 
 const Conquest = async ({ searchParams }: ConquestProps): Promise<ReactElement> => {
   const params = await searchParams;
-  // eslint-disable-next-line no-console
-  console.log('Search Params:', params);
 
-  // TODO: expose options to UI
+  if (params.query) {
+    redirect(params.query);
+  }
+
   const mapUrl = facade.getMap('Leisure_27700');
 
-  return <ConquestMapTemplate mapUrl={mapUrl} />;
+  return <ConquestMapTemplate mapUrl={mapUrl} appVersion={process.env.APP_VERSION} />;
 };
 
 export default Conquest;

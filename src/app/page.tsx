@@ -25,7 +25,17 @@ const Home = async ({ searchParams }: HomeProps): Promise<ReactElement> => {
   }
 
   return (
-    <div style={{ fontSize: '36px', textAlign: 'center' }}>
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        rowGap: '20px',
+        fontSize: '36px',
+        marginTop: '20px',
+      }}
+    >
       <p>Scotland&rsquo;s Mountains v{process.env.APP_VERSION}</p>
       <p>
         {/* @ts-expect-error: This is fine */}

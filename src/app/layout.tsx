@@ -1,3 +1,4 @@
+import './styles.css';
 import { FC, ReactNode } from 'react';
 
 export type LayoutProps = {

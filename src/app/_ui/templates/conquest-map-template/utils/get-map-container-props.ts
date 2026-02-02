@@ -2,7 +2,7 @@ import 'proj4leaflet';
 import { LatLngBoundsExpression, Proj } from 'leaflet';
 import { CSSProperties } from 'react';
 import { MapContainerProps as MapContainerBaseProps } from 'react-leaflet';
-import { projectCoordinates } from '../utils/project-coordinates.js';
+import { projectCoordinates } from './project-coordinates.js';
 
 type Styles = {
   style: CSSProperties;
@@ -39,5 +39,5 @@ export const getMapContainerProps = (isEPSG27700: boolean): MapContainerProps =>
         projectCoordinates('EPSG:27700', 'EPSG:4326', [900000, 1376256]),
       ] as LatLngBoundsExpression)
     : undefined,
-  style: { height: '98vh', width: '99vw' },
+  style: { height: '100vh', width: '100vw' },
 });

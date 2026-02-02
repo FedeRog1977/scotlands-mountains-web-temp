@@ -3,7 +3,7 @@
 import { FC } from 'react';
 import { MapContainer, TileLayer } from 'react-leaflet';
 import { osAttribution } from '../constants/os-attribution.js';
-import { getMapContainerProps } from './get-map-container-props.js';
+import { getMapContainerProps } from '../utils/get-map-container-props.js';
 
 type OSMapComponentProps = {
   mapUrl: string;
