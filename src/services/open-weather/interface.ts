@@ -5,9 +5,9 @@ import { Hourly } from './types/hourly.js';
 import { Minutely } from './types/minutely.js';
 
 export interface Interface {
-  getCurrent: () => Promise<Current>;
-  getDaily: () => Promise<Daily>;
-  getGeneral: () => Promise<General>;
-  getHourly: () => Promise<Hourly>;
-  getMinutely: () => Promise<Minutely>;
+  getCurrent: (lat: string, lon: string) => Promise<Current>;
+  getDaily: (lat: string, lon: string) => Promise<Daily>;
+  getGeneral: (lat: string, lon: string) => Promise<General>;
+  getHourly: (lat: string, lon: string) => Promise<Hourly>;
+  getMinutely: (lat: string, lon: string) => Promise<Minutely>;
 }
