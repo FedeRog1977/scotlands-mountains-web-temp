@@ -29,4 +29,5 @@ Next.js 15 and React web applications for Scotland's Mountains Web.
 - React Leaflet: https://react-leaflet.js.org/docs/api-map/
 - Proj4: https://proj.org/en/stable/index.html
 - Proj4Leaflet: https://kartena.github.io/Proj4Leaflet/
+- OpenWeather One Call 3.0: https://openweathermap.org/api/one-call-3?collection=one_call_api_3.0
 - ECharts: https://echarts.apache.org/examples/en/index.html
