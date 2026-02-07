@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import Link from 'next/link.js';
 import { redirect } from 'next/navigation.js';
 import { ReactElement } from 'react';
+import { Layout } from '~/libs/components/layout';
 
 type SearchParams = {
   query: string;
@@ -25,47 +26,45 @@ const Home = async ({ searchParams }: HomeProps): Promise<ReactElement> => {
   }
 
   return (
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-        rowGap: '20px',
-        fontSize: '36px',
-        marginTop: '20px',
-      }}
-    >
-      <p>Scotland&rsquo;s Mountains v{process.env.APP_VERSION}</p>
-      <p>
-        {/* @ts-expect-error: This is fine */}
-        <Link href="/conquest">Conquest</Link>
-      </p>
-      <p>
-        {/* @ts-expect-error: This is fine */}
-        <Link href="/weather">Mountain Weather</Link>
-      </p>
-      <p>
-        {/* @ts-expect-error: This is fine */}
-        <Link href="/districts">Districts</Link>
-      </p>
-      <p>
-        {/* @ts-expect-error: This is fine */}
-        <Link href="/regions">Regions</Link>
-      </p>
-      <p>
-        {/* @ts-expect-error: This is fine */}
-        <Link href="/landmasses">Landmasses</Link>
-      </p>
-      <p>
-        {/* @ts-expect-error: This is fine */}
-        <Link href="/hills">Hills</Link>
-      </p>
-      <p>
-        {/* @ts-expect-error: This is fine */}
-        <Link href="/gear">Gear</Link>
-      </p>
-    </div>
+    <Layout appVersion={process.env.APP_VERSION}>
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          rowGap: '20px',
+          fontSize: '36px',
+        }}
+      >
+        <p>
+          {/* @ts-expect-error: This is fine */}
+          <Link href="/conquest">Conquest</Link>
+        </p>
+        <p>
+          {/* @ts-expect-error: This is fine */}
+          <Link href="/weather">Mountain Weather</Link>
+        </p>
+        <p>
+          {/* @ts-expect-error: This is fine */}
+          <Link href="/districts">Districts</Link>
+        </p>
+        <p>
+          {/* @ts-expect-error: This is fine */}
+          <Link href="/regions">Regions</Link>
+        </p>
+        <p>
+          {/* @ts-expect-error: This is fine */}
+          <Link href="/landmasses">Landmasses</Link>
+        </p>
+        <p>
+          {/* @ts-expect-error: This is fine */}
+          <Link href="/hills">Hills</Link>
+        </p>
+        <p>
+          {/* @ts-expect-error: This is fine */}
+          <Link href="/gear">Gear</Link>
+        </p>
+      </div>
+    </Layout>
   );
 };
 

@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import { redirect } from 'next/navigation.js';
 import { ReactElement } from 'react';
 import { facade } from '../_facade/index.js';
-import { ConquestMapTemplate } from '../_ui/templates/conquest-map-template/conquest-map-template.jsx';
+import { ConquestMapTemplate } from '../_ui/conquest-map-template/conquest-map-template.js';
 
 type SearchParams = {
   query: string;

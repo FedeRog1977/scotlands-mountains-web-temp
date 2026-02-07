@@ -1,35 +1,31 @@
-'use client';
-
 import { FC } from 'react';
-import { OSMap } from './components/os-map.jsx';
 
-export type ConquestMapTemplateProps = {
-  mapUrl: string;
+type HeaderProps = {
+  variant?: 'basic' | 'layered';
   appVersion: string;
 };
 
-export const ConquestMapTemplate: FC<ConquestMapTemplateProps> = ({ mapUrl, appVersion }) => (
-  <>
+export const Header: FC<HeaderProps> = ({ variant = 'basic', appVersion }) => {
+  const isBasic = variant === 'basic';
+
+  return (
     <header
       style={{
         display: 'flex',
+        flexShrink: isBasic ? 0 : undefined, // For everything else, only
         justifyContent: 'space-between',
         alignItems: 'center',
-        position: 'absolute',
+        position: isBasic ? undefined : 'absolute', // For Conquest, only
         zIndex: '2000',
         height: '8vh',
         width: '100vw',
         backdropFilter: 'saturate(180%) blur(10px)',
-        // paddingLeft: '36px',
-        // paddingRight: '36px',
-        // border: '1px solid black',
       }}
     >
       <div
         style={{
           fontSize: '36px',
           marginLeft: '36px',
-          // border: '1px solid black',
         }}
       >
         Scotland&rsquo;s Mountains v{appVersion}
@@ -43,7 +39,6 @@ export const ConquestMapTemplate: FC<ConquestMapTemplateProps> = ({ mapUrl, appV
           columnGap: '20px',
           fontSize: '20px',
           marginRight: '36px',
-          // border: '1px solid black',
         }}
       >
         <a href="/">Home</a>
@@ -56,6 +51,5 @@ export const ConquestMapTemplate: FC<ConquestMapTemplateProps> = ({ mapUrl, appV
         <a href="/gear">Gear</a>
       </div>
     </header>
-    <OSMap mapUrl={mapUrl} />
-  </>
-);
+  );
+};

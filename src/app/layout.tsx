@@ -1,4 +1,4 @@
-import './styles.css';
+import '~/libs/components/reset';
 import { FC, ReactNode } from 'react';
 
 export type LayoutProps = {
