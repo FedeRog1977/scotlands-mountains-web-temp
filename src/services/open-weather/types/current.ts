@@ -7,20 +7,20 @@ type Weather = {
 };
 
 export type Current = {
-  dateTime: number;
-  sunrise: number;
-  sunset: number;
-  temperature: number;
-  temperatureFeelsLike: number;
-  pressure: number;
-  humidity: number;
-  dewPoint: number;
-  ultravioletIndex: number;
-  cloudCover: number;
-  visibility: number;
-  windSpeed: number;
-  windDirection: number;
-  windGust: number;
+  dateTime: string;
+  sunrise: string;
+  sunset: string;
+  temperature: string;
+  temperatureFeelsLike: string;
+  pressure: string;
+  humidity: string;
+  dewPoint: string;
+  ultravioletIndex: string;
+  cloudCover: string;
+  visibility: string;
+  windSpeed: string;
+  windGust?: string;
+  windDirection: string;
   weather: Weather[];
-  inversionProbability: number;
+  inversionProbability: string;
 };

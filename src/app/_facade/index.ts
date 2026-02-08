@@ -1,6 +1,7 @@
-// import { ValidatorAjv } from '~/services/validator-ajv';
 import { baseUrls } from '~/libs/constants';
+import { OpenWeatherServiceClient } from '~/services/open-weather';
 import { OrdnanceSurveyServiceClient } from '~/services/ordnance-survey';
+import { ValidatorAjv } from '~/services/validator-ajv';
 import { Implementation as ImplementationClient } from './client/implementation.js';
 import { Interface } from './interface.js';
 import { Implementation as ImplementationTest } from './test/implementation.js';
@@ -10,14 +11,23 @@ const getFacade = (): Interface => {
     return new ImplementationTest();
   }
 
-  // const validatorAjv = new ValidatorAjv();
+  const validatorAjv = new ValidatorAjv();
+
+  const openWeatherServiceClient = new OpenWeatherServiceClient({
+    baseUrl: baseUrls.openWeather,
+    apiKey: process.env.OPEN_WEATHER_API_KEY,
+    validator: validatorAjv,
+  });
+
   const ordnanceSurveyServiceClient = new OrdnanceSurveyServiceClient({
     baseUrl: baseUrls.ordnanceSurvey,
     apiKey: process.env.OS_API_KEY,
-    // validator: validatorAjv,
   });
 
-  return new ImplementationClient({ ordnanceSurveyService: ordnanceSurveyServiceClient });
+  return new ImplementationClient({
+    openWeatherService: openWeatherServiceClient,
+    ordnanceSurveyService: ordnanceSurveyServiceClient,
+  });
 };
 
 /**

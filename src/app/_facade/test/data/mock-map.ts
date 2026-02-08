@@ -1,1 +1,1 @@
-export const mockMap = '';
+export const mockMap = 'lorem-ipsum-dolor';
