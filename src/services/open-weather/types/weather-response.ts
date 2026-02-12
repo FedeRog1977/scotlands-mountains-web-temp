@@ -1,9 +1,6 @@
 // https://openweathermap.org/api/one-call-3?collection=one_call_api_3.0&collection=one_call_api_3.0&collection=one_call_api_3.0#parameter
 
-type Minutely = {
-  dt: Date; // Time of the forecasted data, unix, UTC
-  precipitation: number; // Precipitation, mm/h.
-};
+// TODO: refine these comments, and expand
 
 // For `Current`, `Daily`, and `Hourly`
 type Weather = {
@@ -31,6 +28,11 @@ type Current = {
   weather: Weather[];
 };
 
+type Minutely = {
+  dt: Date; // Time of the forecasted data, unix, UTC
+  precipitation: number; // Precipitation, mm/h.
+};
+
 type Hourly = {
   dt: Date; // Time of the forecasted data, unix, UTC
   temp: number; // Temperature. Units - default: kelvin, metric: Celsius, imperial: Fahrenheit
@@ -42,18 +44,10 @@ type Hourly = {
   clouds: number; // Cloud cover, %
   visibility: number; // Average visibility, metres
   wind_speed: number; // Wind speed. Units – default: metre/sec, metric: metre/sec, imperial: miles/hour
-  wind_gust: number; // Wind gust. Units – default: metre/sec, metric: metre/sec, imperial: miles/hour
+  wind_gust?: number; // Wind gust. Units – default: metre/sec, metric: metre/sec, imperial: miles/hour
   wind_deg: number; // Wind direction, degrees (meteorological)
   weather: Weather[];
   pop: number; // Probability of precipitation. The values of the parameter vary between 0 and 1, where 0 is equal to 0%, 1 is equal to 100%
-};
-
-// For `Daily`
-type Temp = {
-  day: number; // Day temperature
-  night: number; // Night temperature
-  morn: number; // Morning temperature
-  eve: number; // Evening temperature
 };
 
 type Daily = {
@@ -64,16 +58,25 @@ type Daily = {
   moonset: number; // The time of when the moon sets for this day, Unix, UTC
   moon_phase: number; // Moon phase. 0 and 1 are 'new moon', 0.25 is 'first quarter moon', 0.5 is 'full moon' and 0.75 is 'last quarter moon'. The periods in between are called 'waxing crescent', 'waxing gibbous', 'waning gibbous', and 'waning crescent', respectively. Moon phase calculation algorithm: if the moon phase values between the start of the day and the end of the day have a round value (0, 0.25, 0.5, 0.75, 1.0), then this round value is taken, otherwise the average of moon phases for the start of the day and the end of the day is taken
   summary: string; // Human-readable description of the weather conditions for the day
-  temp: Temp & {
+  temp: {
     min: number; // Min daily temperature
     max: number; // Max daily temperature
+    day: number; // Day temperature
+    night: number; // Night temperature
+    morn: number; // Morning temperature
+    eve: number; // Evening temperature
   };
-  feels_like: Temp;
+  feels_like: {
+    day: number; // Day temperature
+    night: number; // Night temperature
+    morn: number; // Morning temperature
+    eve: number; // Evening temperature
+  };
   pressure: number; // Atmospheric pressure on the sea level, hPa
   humidity: number; // Humidity, %
   dew_point: number; // Atmospheric temperature (varying according to pressure and humidity) below which water droplets begin to condense and dew can form. Units – default: kelvin, metric: Celsius, imperial: Fahrenheit
   wind_speed: number;
-  wind_gust: number; // Wind gust. Units – default: metre/sec, metric: metre/sec, imperial: miles/hour
+  wind_gust?: number; // Wind gust. Units – default: metre/sec, metric: metre/sec, imperial: miles/hour
   wind_deg: number; // Wind direction, degrees (meteorological)
   weather: Weather[];
   clouds: number; // Cloud cover, %
